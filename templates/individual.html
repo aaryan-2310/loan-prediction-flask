@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% block content %}
+  <section class="header individual-header" id="about">
+      <div class="container mt-5 ">            
+          <h1 class="text-center p-1 amber-text text-uppercase">Individual Loan Approval Prediction</h1>
+      </div>
+      <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <p class="h3 pt-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                    Quisquam repellendus mollitia est perferendis quam molestiae, enim nostrum a numquam, 
+                    aliquid quod soluta repellat facilis consectetur similique nihil! Quod, ipsum in!</p>
+            </div>
+            <div class="col-md-6 text-center">
+                    <a class="btn btn-lg peach-gradient js-scroll-trigger" href="#predict">Predict</a>
+            </div>
+          </div>
+      </div>
+      
+</section>
+    <section class="feature individual-feature color-block" id = "predict">
+        <h1 class="text-white text-uppercase font-weight-lighter">Enter the details </h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    
+                   <!-- <div class="md-form">
+                        <input type="number" minlength="3" maxlength="3" min="300" max="999" id="form1" class="form-control">
+                        <label for="form1">CIBIL Score</label>
+                      </div>-->
+                      <div class="d-flex justify-content-center my-4">
+                        <span class="font-weight-bold amber-text ml-2">CIBIL Score</span>
+                        <br>
+                        <div class="w-75">
+                          <input type="range" class="custom-range" id="customRange11" min="300" max="999">
+                        </div>
+                        <span class="font-weight-bold text-white ml-2 valueSpan2"></span>
+                      </div>
+                    
+                      
+                      <div class="md-form">
+                        <input type="number" id="loanAmnt" class="form-control">
+                        <label for="loanAmnt">Loan Amount</label>
+                      </div>
+                   
+                      
+                      <div class="md-form">
+                        <input type="number" id="term" class="form-control">
+                        <label for="term">Term (in Months)</label>
+                      </div>
+                      
+                      <div class="md-form">
+                        <input type="number" id="dti" class="form-control">
+                        <label for="dti">Current Debt to Income Ratio</label>
+                      </div>
+                      </div>
+                <div class="col-md-4">
+                
+                      <select class="browser-default custom-select amber-text elegant-color mySelect">
+                        <option selected>Home Ownership</option>
+                        <option value="1">Mortgage</option>
+                        <option value="2">Own</option>
+                        <option value="3">Rent</option>
+                        <option value="4">None</option>
+                        <option value="5">Other</option>
+                        <option value="6">Any</option>
+                      </select>
+                    
+                      <div class="md-form">
+                        <input type="number" id="openCred" class="form-control">
+                        <label for="openCred">Total Open Credit lines</label>
+                      </div>
+                      <div class="md-form">
+                        <input type="number" id="AnnualInc" class="form-control">
+                        <label for="AnnualInc">Annual Income</label>
+                      </div>
+                      <p class="font-weight-bold ml-5 p-0 amber-text">No of Mortgage Account</p>
+                      <div class="d-flex justify-content-center my-4">
+                        <div class="w-75">
+                          <input type="range" class="custom-range mb-2" id="mortAcc" min="0" max="10">
+                        </div>
+                        <span class="font-weight-bold text-white ml-2 mort-acc-range"></span>
+                      </div>
+                    </div>
+
+                <div class="col-md-4">
+                                         
+                      <p class="font-weight-bold amber-text">Total Credit lines currently in credit file</p>
+                      <div class="d-flex justify-content-center my-4">
+                        <div class="w-75">
+                          <input type="range" class="custom-range" id="total-cred" min="0" max="10">
+                        </div>
+                        <span class="font-weight-bold text-white ml-2 total-cred-range"></span>
+                      </div>
+                      <select class="browser-default custom-select amber-text elegant-color mySelect">
+                        <option selected>Verification Status</option>
+                        <option value="1">Verified</option>
+                        <option value="2">Not Verified</option>
+                        </select>
+                      <div class="md-form">
+                        <input type="number" id="revolUtil" class="form-control amber-text">
+                        <label for="revolUtil"> Credit used relative to all available revolving credit</label>
+                      </div>
+                    </div>
+                    <div class="row col-btn pt-5 mt-2">
+
+                    <button type="submit" class="btn btn-start waves-effect z-depth-0">Predict</button>
+                    </div>
+                   
+    </section>    
+       
+  {% endblock content %}
+    
+   
