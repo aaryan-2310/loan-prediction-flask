@@ -159,7 +159,7 @@ $(document).ready(function () {
 	});
 		});
 			
-	var apiUrl = 'http://www.statbureau.org/calculate-inflation-price-jsonp?jsoncallback=?';
+	var apiUrl = 'https://www.statbureau.org/calculate-inflation-price-jsonp?jsoncallback=?';
 		
 	$('#calc').on('click', function calculate() {
 	var s = String($startYear.val())+'/1/1';
