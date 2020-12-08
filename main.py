@@ -1,5 +1,4 @@
-from flask import Flask, render_template, request, flash
-from inflation import calculation 
+from flask import Flask, render_template
 import pandas as pd
 
 df = pd.read_csv("data/inflation.csv")
