@@ -603,12 +603,22 @@ svg {
   margin-top: -100px;
 
 }
+
+
 .feature
 {
     padding: 100px 0;
     background-size: cover;
     height: 100vh;
     background-repeat: no-repeat;
+}
+@media (max-width: 991px) {
+  .feature {
+    padding: 20px 0;
+    background-size: cover !important;
+    height: 130vh;
+    background-repeat: no-repeat;
+  }
 }
 h1{
     text-align: center;

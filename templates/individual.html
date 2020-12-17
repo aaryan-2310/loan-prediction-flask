@@ -20,10 +20,11 @@
 </section>
     <section class="feature individual-feature color-block" id = "predict">
         <h1 class="text-white text-uppercase font-weight-lighter">Enter the details </h1>
-        <div class="container">
+        <div class="container-xl">
             <div class="row">
                 <div class="col-md-4">
-                    
+                  <form class="md-form" action="{{ url_for('individual') }}" method="POST">
+
                    <!-- <div class="md-form">
                         <input type="number" minlength="3" maxlength="3" min="300" max="999" id="form1" class="form-control">
                         <label for="form1">CIBIL Score</label>
@@ -32,52 +33,53 @@
                         <span class="font-weight-bold amber-text ml-2">CIBIL Score</span>
                         <br>
                         <div class="w-75">
-                          <input type="range" class="custom-range" id="customRange11" min="300" max="999">
+                          <input type="range" name="cibil_score" class="custom-range" id="customRange11" min="300" max="999" required>
                         </div>
                         <span class="font-weight-bold text-white ml-2 valueSpan2"></span>
                       </div>
                     
                       
                       <div class="md-form">
-                        <input type="number" id="loanAmnt" class="form-control">
+                        <input type="number" id="loanAmnt" name="loan_amnt" class="form-control" required>
                         <label for="loanAmnt">Loan Amount</label>
                       </div>
                    
                       
-                      <div class="md-form">
-                        <input type="number" id="term" class="form-control">
-                        <label for="term">Term (in Months)</label>
-                      </div>
+                      <select class="browser-default custom-select amber-text elegant-color mySelect" name="term" required>
+                        <option selected>Term</option>
+                        <option value="36">36 Months</option>
+                        <option value="60">60 Months</option>
+                      </select>
                       
                       <div class="md-form">
-                        <input type="number" id="dti" class="form-control">
+                        <input type="number" id="dti" name="dti" class="form-control" required>
                         <label for="dti">Current Debt to Income Ratio</label>
                       </div>
                       </div>
                 <div class="col-md-4">
                 
-                      <select class="browser-default custom-select amber-text elegant-color mySelect">
+                      <select class="browser-default custom-select amber-text elegant-color mySelect" name="home_ownership" required>
                         <option selected>Home Ownership</option>
-                        <option value="1">Mortgage</option>
-                        <option value="2">Own</option>
-                        <option value="3">Rent</option>
-                        <option value="4">None</option>
-                        <option value="5">Other</option>
-                        <option value="6">Any</option>
+                        <option value="MORTGAGE">Mortgage</option>
+                        <option value="OWN">Own</option>
+                        <option value="RENT">Rent</option>
+                        <option value="NONE">None</option>
+                        <option value="OTHER">Other</option>
+                        <option value="ANY">Any</option>
                       </select>
                     
                       <div class="md-form">
-                        <input type="number" id="openCred" class="form-control">
+                        <input type="number" id="openCred" class="form-control" name="open_acc" required>
                         <label for="openCred">Total Open Credit lines</label>
                       </div>
                       <div class="md-form">
-                        <input type="number" id="AnnualInc" class="form-control">
+                        <input type="number" id="AnnualInc" class="form-control" name="annual_inc" required>
                         <label for="AnnualInc">Annual Income</label>
                       </div>
                       <p class="font-weight-bold ml-5 p-0 amber-text">No of Mortgage Account</p>
                       <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
-                          <input type="range" class="custom-range mb-2" id="mortAcc" min="0" max="10">
+                          <input type="range" name="mort_acc" class="custom-range mb-2" id="mortAcc" min="0" max="10" required>
                         </div>
                         <span class="font-weight-bold text-white ml-2 mort-acc-range"></span>
                       </div>
@@ -88,26 +90,42 @@
                       <p class="font-weight-bold amber-text">Total Credit lines currently in credit file</p>
                       <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
-                          <input type="range" class="custom-range" id="total-cred" min="0" max="10">
+                          <input type="range" class="custom-range" name="total_acc" id="total-cred" min="0" max="10" required>
                         </div>
                         <span class="font-weight-bold text-white ml-2 total-cred-range"></span>
                       </div>
-                      <select class="browser-default custom-select amber-text elegant-color mySelect">
+                      <select class="browser-default custom-select amber-text elegant-color mySelect" name="verification_status" required>
                         <option selected>Verification Status</option>
+                        <option value="0">Not Verified</option>
                         <option value="1">Verified</option>
-                        <option value="2">Not Verified</option>
+                        <option value="2">Source Verified</option>
                         </select>
                       <div class="md-form">
-                        <input type="number" id="revolUtil" class="form-control amber-text">
+                        <input type="number" id="revolUtil" name="revol_util" class="form-control amber-text" required>
                         <label for="revolUtil"> Credit used relative to all available revolving credit</label>
                       </div>
                     </div>
-                    <div class="row col-btn pt-5 mt-2">
+                      <button type="submit" class="btn btn-start waves-effect z-depth-0">Predict</button>
 
-                    <button type="submit" class="btn btn-start waves-effect z-depth-0">Predict</button>
-                    </div>
+                  </form>
+                  </div>
+                  </div>
+  
+
                    
-    </section>    
+    </section>   
+    <section class="hoverable p-2 m-4 rounded">
+      <div class="text-container text-black" align="center">
+        {% if result %}
+        {% for variable, value in original_input.items() %}
+        <br><b>{{ variable }}</b> : {{ value }}
+        {% endfor %}
+        <br>
+        <br> Loan Decision:
+        <p style="font-size:50px">{{ result }}</p>
+        {% endif %}
+        </div>
+    </section> 
        
   {% endblock content %}
     
