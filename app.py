@@ -17,7 +17,7 @@ ss = StandardScaler()
 app = Flask(__name__)
 
 #feature space
-df_train_jl_scale = pd.read_csv("C:/Users/Aryan/Documents/GitHub/loan-prediction-flask/data/df_train_jl_scale.csv")
+df_train_jl_scale = pd.read_csv("data/df_train_jl_scale.csv")
 #load APR table
 df_fico_apr = pd.read_csv("data/grade_to_apr.csv")
 
