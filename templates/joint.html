@@ -18,7 +18,7 @@
           </div>
           
     </section>
-    <section class="feature joint-feature color-block" id = "predict">
+    <div class="feature joint-feature color-block" id = "predict">
         <h1 class="text-white text-uppercase font-weight-lighter">Enter the details </h1>
         
         <div class="container">
@@ -121,9 +121,9 @@
                   </form>
               </div>
                    
-    </section>
-    <section class="hoverable p-2 m-4 rounded joint-feature">
-      <div class="text-container text-white" align="center">
+            </div>
+    <section class="hoverable p-2 m-4 rounded ">
+      <div class="text-container joint-feature text-white" align="center">
         {% if result %}
         {% for variable, value in original_input.items() %}
         <br><b>{{ variable }}</b> : {{ value }}
