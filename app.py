@@ -1,15 +1,15 @@
 from flask import Flask, render_template, request
 import pandas as pd
-import pickle
+import joblib
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-# with open('models/xgb_cv_compact_individual_final.pkl', 'rb') as f:
-#     clf_individual = pickle.load(f)
+with open('models/xgb_cv_compact_individual_final.pkl', 'rb') as f:
+    clf_individual = joblib.load(f)
 with open('models/gb_cv_compact_joint.pkl', 'rb') as f:
-    clf_joint = pickle.load(f)
+    clf_joint = joblib.load(f)
 with open('models/knn_regression.pkl', 'rb') as f:
-    knn = pickle.load(f)
+    knn = joblib.load(f)
 
 ss = StandardScaler()
 
