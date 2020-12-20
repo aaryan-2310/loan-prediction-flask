@@ -4,8 +4,8 @@ import pickle
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-with open('models/xgb_cv_compact_individual_final.pkl', 'rb') as f:
-    clf_individual = pickle.load(f)
+# with open('models/xgb_cv_compact_individual_final.pkl', 'rb') as f:
+#     clf_individual = pickle.load(f)
 with open('models/gb_cv_compact_joint.pkl', 'rb') as f:
     clf_joint = pickle.load(f)
 with open('models/knn_regression.pkl', 'rb') as f:
