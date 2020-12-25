@@ -609,17 +609,10 @@ svg {
 {
     padding: 100px 0;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     background-repeat: no-repeat;
 }
-@media (max-width: 991px) {
-  .feature {
-    padding: 20px 0;
-    background-size: cover !important;
-    height: 130vh;
-    background-repeat: no-repeat;
-  }
-}
+
 h1{
     text-align: center;
     padding-bottom: 30px;
