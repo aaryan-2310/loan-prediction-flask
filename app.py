@@ -70,7 +70,6 @@ def individual():
         revol_util = float(request.form['revol_util'])
         #The total number of credit lines currently in the borrower's credit file
         total_acc = int(request.form['total_acc'])
-        #time since first credit line in months
         
         credit_line_ratio=open_acc/total_acc
         balance_annual_inc=loan_amnt/annual_inc

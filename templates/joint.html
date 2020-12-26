@@ -34,7 +34,7 @@
                         <span class="font-weight-bold amber-text ml-2">CIBIL Score1</span>
                         <br>
                         <div class="w-75">
-                          <input type="range" class="custom-range" name="cibil_score" id="cibil_score" min="300" max="999" required>
+                          <input type="range" class="custom-range" name="cibil_score" id="cibil_score" min="500" max="999" required>
                         </div>
                         <span class="font-weight-bold text-white ml-2 cibil_score_span"></span>
                       </div>
@@ -43,7 +43,7 @@
                         <span class="font-weight-bold amber-text ml-2">CIBIL Score2</span>
                         <br>
                         <div class="w-75">
-                          <input type="range" class="custom-range" name="cibil_score2" id="cibil_score2" min="300" max="999" required>
+                          <input type="range" class="custom-range" name="cibil_score2" id="cibil_score2" min="500" max="999" required>
                         </div>
                         <span class="font-weight-bold text-white ml-2 cibil_score2_span"></span>
                       </div>
@@ -52,7 +52,7 @@
                       <p class="font-weight-bold ml-5 p-0 amber-text">No of Mortgage Account</p>
                       <div class="d-flex justify-content-center my-4">
                         <div class="w-75">
-                          <input type="range" name="mort_acc" class="custom-range mb-2" id="mortAcc" min="0" max="10" required>
+                          <input type="range" name="mort_acc" class="custom-range mb-2" id="mortAcc" min="0" max="50" required>
                         </div>
                         <span class="font-weight-bold text-white ml-2 mort-acc-range"></span>
                       </div>
@@ -66,7 +66,7 @@
                       </div>
                 <div class="col-md-4 col-sm-6">
                     <div class="md-form">
-                        <input type="number" id="dti" name="dti_joint" class="form-control" required>
+                        <input type="number" id="dti" name="dti_joint" class="form-control amber-text" min="0" max="100" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="dti">Current Debt to Income Ratio</label>
                       </div>
                 
@@ -82,11 +82,11 @@
                     
                       
                       <div class="md-form">
-                        <input type="number" id="AnnualInc" name="annual_inc" class="form-control" required>
+                        <input type="number" id="AnnualInc" name="annual_inc" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="AnnualInc">Annual Income</label>
                       </div>
                       <div class="md-form">
-                        <input type="number" id="AnnualInc2" name="sec_annual_inc" class="form-control" required>
+                        <input type="number" id="AnnualInc2" name="sec_annual_inc" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="AnnualInc2">Annual Income 2</label>
                       </div>
                       </div>
@@ -94,22 +94,22 @@
 
                 <div class="col-md-4 col-sm-6">
                     <div class="md-form">
-                        <input type="number" id="credEnq" name="inq_last_6mths" class="form-control" required>
+                        <input type="number" id="credEnq" name="inq_last_6mths" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <=57" required>
                         <label for="credEnq">Credit Enq. in  last six months</label>
                       </div>
                                                             
                       <div class="md-form">
-                        <input type="number" id="loanAmount" name="loan_amnt" class="form-control" required>
+                        <input type="number" id="loanAmount" name="loan_amnt" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="loanAmount">Loan Amount</label>
                       </div>
                       
                       <div class="md-form">
-                        <input type="number" id="credUsed" name="revol_util" class="form-control amber-text" required>
+                        <input type="number" id="credUsed" name="revol_util" class="form-control amber-text" min="0" max="200" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="credUsed"> Credit used relative to all available revolving credit</label>
                       </div>
                    
                     <div class="md-form">
-                        <input type="number" id="CurrBalance" name="total_bal_il" class="form-control amber-text" required>
+                        <input type="number" id="CurrBalance" name="total_bal_il" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="CurrBalance"> Current Balance Owed on installement Account</label>
                       </div>
                     </div>
