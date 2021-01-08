@@ -39,7 +39,8 @@
                       </div>
                     
                       
-                      <div class="md-form">
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
                         <input type="number" id="loanAmnt" name="loan_amnt" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="loanAmnt">Loan Amount</label>
                       </div>
@@ -51,9 +52,10 @@
                         <option value="60">60 Months</option>
                       </select>
                       
-                      <div class="md-form">
-                        <input type="number" id="dti" name="dti" class="form-control amber-text" min="0" max="100" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
-                        <label for="dti">Current Debt to Income Ratio</label>
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
+                        <input type="number" id="currEmi" name="currEmi" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
+                        <label for="currEmi">Current Monthly Installement</label>
                       </div>
                       </div>
                 <div class="col-md-4">
@@ -72,7 +74,8 @@
                         <input type="number" id="openCred" class="form-control amber-text" name="open_acc" min="0" max="100" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <=57" required>
                         <label for="openCred">Total Open Credit lines</label>
                       </div>
-                      <div class="md-form">
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
                         <input type="number" id="AnnualInc" class="form-control amber-text" name="annual_inc" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="AnnualInc">Annual Income</label>
                       </div>
@@ -100,9 +103,10 @@
                         <option value="1">Verified</option>
                         <option value="2">Source Verified</option>
                         </select>
-                      <div class="md-form">
-                        <input type="number" id="revolUtil" name="revol_util" class="form-control amber-text" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
-                        <label for="revolUtil"> Credit used relative to all available revolving credit</label>
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-percentage input-prefix amber-text fa-lg"></i>
+                        <input type="number" id="revolUtil" name="revol_util" class="form-control amber-text" min="0" max="100" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
+                        <label for="revolUtil"> Credit Utilization Rate</label>
                       </div>
                     </div>
                     <div class="col-12 d-flex justify-content-center">

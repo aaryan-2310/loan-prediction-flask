@@ -65,9 +65,10 @@
                       </select>
                       </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="md-form">
-                        <input type="number" id="dti" name="dti_joint" class="form-control amber-text" min="0" max="100" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
-                        <label for="dti">Current Debt to Income Ratio</label>
+                    <div class="md-form input-with-pre-icon">
+                      <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
+                        <input type="number" id="currEmi" name="currEmi" class="form-control amber-text" min="0"  onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
+                        <label for="currEmi">Current Monthly Installement</label>
                       </div>
                 
                       <select class="browser-default custom-select amber-text elegant-color mySelect" name="home_ownership" required>
@@ -81,11 +82,13 @@
                       </select>
                     
                       
-                      <div class="md-form">
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
                         <input type="number" id="AnnualInc" name="annual_inc" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="AnnualInc">Annual Income</label>
                       </div>
-                      <div class="md-form">
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
                         <input type="number" id="AnnualInc2" name="sec_annual_inc" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="AnnualInc2">Annual Income 2</label>
                       </div>
@@ -93,24 +96,28 @@
                       
 
                 <div class="col-md-4 col-sm-6">
-                    <div class="md-form">
+                    <div class="md-form input-with-pre-icon">
+                      <i class="fas fa-exclamation input-prefix amber-text fa-lg"></i>
                         <input type="number" id="credEnq" name="inq_last_6mths" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <=57" required>
                         <label for="credEnq">Credit Enq. in  last six months</label>
                       </div>
                                                             
-                      <div class="md-form">
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
                         <input type="number" id="loanAmount" name="loan_amnt" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
                         <label for="loanAmount">Loan Amount</label>
                       </div>
                       
-                      <div class="md-form">
+                      <div class="md-form input-with-pre-icon">
+                        <i class="fas fa-percentage input-prefix amber-text fa-lg"></i>
                         <input type="number" id="credUsed" name="revol_util" class="form-control amber-text" min="0" max="200" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
-                        <label for="credUsed"> Credit used relative to all available revolving credit</label>
+                        <label for="credUsed"> Credit Utilization Rate</label>
                       </div>
                    
-                    <div class="md-form">
+                    <div class="md-form input-with-pre-icon">
+                      <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
                         <input type="number" id="CurrBalance" name="total_bal_il" class="form-control amber-text" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : (event.charCode >= 48 || event.charCode == 46) && event.charCode <=57" required>
-                        <label for="CurrBalance"> Current Balance Owed on installement Account</label>
+                        <label for="CurrBalance"> Curr. Balance Owed on instll. Account</label>
                       </div>
                     </div>
                     
@@ -124,7 +131,7 @@
     </div>
             
     <section class="hoverable p-2 m-4 rounded ">
-      <div class="text-container joint-feature text-white" align="center">
+      <div class="text-container text-black" align="center">
         {% if result %}
         {% for variable, value in original_input.items() %}
         <br><b>{{ variable }}</b> : {{ value }}

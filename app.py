@@ -55,7 +55,7 @@ def individual():
         #term as integer: 36 or 60
         term = int(request.form['term'])
         #debt to income as float
-        dti = float(request.form['dti'])
+        currEmi = float(request.form['currEmi'])
         #home ownership as string
         home_ownership = request.form['home_ownership']
         #number or mortgage accounts as integer
@@ -83,13 +83,13 @@ def individual():
         
         #use equal monthly installment formula
         if term==36:
-            int_rate = apr_row['36_mo'].values[0]/100
+            int_rate = 14/12/100
             emi = int_rate/36
             installment = loan_amnt * (int_rate*(1+int_rate)**36) / ((1+int_rate)**36 - 1)
             term = 1
             
         else:
-            int_rate = apr_row['60_mo'].values[0]/100
+            int_rate = 14/12/100
             emi = int_rate/60
             installment = loan_amnt * (int_rate*(1+int_rate)**36) / ((1+int_rate)**36 - 1)
             term = 2
@@ -97,6 +97,7 @@ def individual():
         #make integer
         installment = int(installment)
         inst_amnt_ratio=installment/loan_amnt
+        dti = (currEmi/(annual_inc/12)) * 100
 
         
         temp = pd.DataFrame(index=[0])
@@ -131,7 +132,6 @@ def individual():
         scale = temp.copy()
         for feat in df_macro_mean.columns:
             scale[feat] = (scale[feat] - df_macro_mean.loc[code,feat]) / df_macro_std.loc[code,feat]
-        
             
         #make prediction
         pred = clf_individual.predict(scale)
@@ -149,9 +149,12 @@ def individual():
             print(scale)
             print(pred)
             res = 'Congratulations! Approved!'
- 
-        
-        
+
+        CalEmi = ((annual_inc/12)*0.5) - currEmi
+        amnt = (((1+int_rate)**term)-1) / ((1+int_rate) ** term)  * 2.85
+        principal = (CalEmi/int_rate) * amnt
+        output_dict['Maximum Loan Amount Eligible (₹)'] = int(principal) * 12
+
         #render form again and add prediction
         return (render_template('individual.html',
                                      original_input=output_dict,
@@ -171,7 +174,7 @@ def joint():
         #term as integer: 36 or 60
         term = int(request.form['term'])
         #debt to income as float
-        dti_joint = float(request.form['dti_joint'])
+        currEmi = float(request.form['currEmi'])
         #home ownership as string
         home_ownership = request.form['home_ownership']
         #number or mortgage accounts as integer
@@ -212,6 +215,8 @@ def joint():
         #make integer
         installment = int(installment)
         inst_amnt_ratio = installment/loan_amnt
+        dti_joint = (currEmi/int(((annual_inc+sec_annual_inc)/2)*12)) * 100
+
         
         temp = pd.DataFrame(index=[1])
         #temp['fico'] = fico
@@ -233,7 +238,7 @@ def joint():
         #create original output dict
         output_dict= dict()
         output_dict['Given Annual Income'] = annual_inc
-        output_dict['Calculated Avg FICO'] = cibil_score
+        output_dict['Calculated Avg CIBIL Score'] = cibil_score
         output_dict['Predicted Interest Rate'] = int_rate * 100 #revert back to percentage
         output_dict['Predicted Installment']=installment
         output_dict['Number of Payments'] = 36 if term==1 else 60
@@ -261,7 +266,10 @@ def joint():
         else:
             res = 'Congratulations! Approved!'
  
-        
+        CalEmi = ((annual_inc/12)*0.5) - currEmi
+        amnt = (((1+int_rate)**term)-1) / ((1+int_rate) ** term)  * 2.85
+        principal = (CalEmi/int_rate) * amnt
+        output_dict['Maximum Loan Amount Eligible (₹)'] = int(principal) * 12
         
         #render form again and add prediction
         return render_template('joint.html',
