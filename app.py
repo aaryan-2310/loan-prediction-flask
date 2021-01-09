@@ -98,7 +98,7 @@ def individual():
         installment = int(installment)
         inst_amnt_ratio=installment/loan_amnt
         dti = (currEmi/(annual_inc/12)) * 100
-
+        interest = 14/100
         
         temp = pd.DataFrame(index=[0])
         #temp['fico'] = fico
@@ -114,7 +114,7 @@ def individual():
         temp['credit_line_ratio']=credit_line_ratio
         temp['bal_annual_inc']=balance_annual_inc
         temp['cibil_score'] = cibil_score
-        temp['int_rate'] =int_rate
+        temp['int_rate'] = interest
         temp['inst_anmt_ratio']=inst_amnt_ratio
         
         
@@ -122,7 +122,7 @@ def individual():
         output_dict= dict()
         output_dict['Provided Annual Income'] = annual_inc
         output_dict['Provided FICO Score'] = cibil_score
-        output_dict['Predicted Interest Rate'] = int_rate * 100 #revert back to percentage
+        output_dict['Interest Rate (%)'] = int(interest * 100) #revert back to percentage
         output_dict['Estimated Installment Amount']=installment
         output_dict['Number of Payments'] = 36 if term==1 else 60
         output_dict['Sub Grade']= sub_grade_to_char[35-int(sub_grade)]
