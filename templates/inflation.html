@@ -48,17 +48,21 @@ aria-hidden="true">
 <!-- Central Modal Medium Success-->
 
 <section class="header inflation-header" id="about">
-    <div class="container mt-5 ">            
-        <h1 class="text-center p-1 amber-text text-uppercase">Inflation Calculator</h1>
+    <div class="container">            
+        <h1 class="h1-responsive text-center font-weight-lighter text-white">Inflation Calculator</h1>
     </div>
-    <div class="container mt-5">
-      <div class="row d-flex justify-content-center">
+    <div class="container my-auto">
+      <div class="row">
           <div class="col-md-6">
-              <p class="h3 pt-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                  Quisquam repellendus mollitia est perferendis quam molestiae, enim nostrum a numquam, 
-                  aliquid quod soluta repellat facilis consectetur similique nihil! Quod, ipsum in!</p>
+              <p class="lead">Inflation is defined as a general increase in the prices of goods 
+                and services, and a fall in the purchasing value of money. Inflation can be artificial
+                 in that the authority, such as a central bank, king, or government, can control the 
+                 supply of the money in circulation. If additional money is added into an economy, each 
+                 unit of money in circulation will be worth less. The inflation rate itself is generally 
+                 conveyed as a percentage increase in prices over 12 months. Most developed nations try 
+                 to sustain an inflation rate between 2-3% through fiscal and monetary policy.</p>
           </div>
-          <div class="col-md-6 text-center">
+          <div class="col-md-6 text-center mx-auto my-auto">
                   <a class="btn btn-lg peach-gradient js-scroll-trigger" href="#predict">Predict</a>
           </div>
         </div>
@@ -92,12 +96,12 @@ aria-hidden="true">
                 
                 <div class="md-form input-with-pre-icon">
                   <i class="fas fa-rupee-sign input-prefix amber-text fa-lg"></i>
-                  <input type="number" id="principalAmount" class="form-control" onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <=57" required>
+                  <input type="number" id="principalAmount" class="form-control" required onkeypress="return (event.charCode == 8 || event.charCode == 0) ? null : event.charCode >= 48 && event.charCode <=57" required>
                   <label for="principalAmount">Principal Amount</label>
                 </div>
                   
                 <div class="ml-5">
-                  <button type='submit' class="btn btn-start waves-effect z-depth-0" data-toggle="modal" id='calc' data-target="#centralModalSuccess">Predict</button>
+                  <button type='submit' class="btn btn-predict waves-effect z-depth-0" data-toggle="modal" id='calc' data-target="#centralModalSuccess">Predict</button>
                 </div>
                 
                 

@@ -4,7 +4,18 @@
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
     */
     (function ($) {
-    "use strict"; // Start of use strict
+	"use strict"; // Start of use strict
+	     
+		$(window).on('load', function() {
+			var preloaderFadeOutTime = 650;
+			function hidePreloader() {
+				var preloader = $('.loader-wrapper');
+				setTimeout(function() {
+					preloader.fadeOut(preloaderFadeOutTime);
+				}, 500);
+			}
+			hidePreloader();
+		});
 
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
@@ -348,5 +359,4 @@ $(document).ready(function () {
 			}
 			// EMI Calculator JS Ends Here
 			
-                        
-    
+           
