@@ -47,7 +47,7 @@ def home():
 @app.route("/individual", methods=['GET', 'POST'])
 def individual():
     if request.method == 'GET':
-        return (render_template('individual.html'))
+        return (render_template('individual.html', title="Individual Loan Approval Prediction - Lending Rupee"))
 
     if request.method == 'POST':
         # fico score as integer
@@ -161,7 +161,7 @@ def individual():
         # render form again and add prediction
         return (render_template('individual.html',
                                 original_input=output_dict,
-                                result=res,
+                                result=res, title="Individual Loan Approval Prediction - Lending Rupee",
                                 ))
 
 
@@ -281,7 +281,7 @@ def joint():
         # render form again and add prediction
         return render_template('joint.html',
                                original_input=output_dict,
-                               result=res,
+                               result=res, title="Joint Loan Approval Prediction - Lending Rupee", 
                                )
 
 
