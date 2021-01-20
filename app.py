@@ -123,7 +123,7 @@ def individual():
         # create original output dict
         output_dict = dict()
         output_dict['Provided Annual Income'] = annual_inc
-        output_dict['Provided FICO Score'] = cibil_score
+        output_dict['Provided CIBIL Score'] = cibil_score
         output_dict['Interest Rate (%)'] = int(
             interest * 100)  # revert back to percentage
         output_dict['Estimated Installment Amount'] = installment
